@@ -1,14 +1,34 @@
-var qrcode = new QRCode("qrcode");
 
-function makeCode () {    
-      var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0');
-var yyyy = today.getFullYear();
-
-today = mm + '_' + dd + '_' + yyyy;
-      qrcode.makeCode(today);
-}
-window.onload = function exampleFunction() {
-      makeCode();
-  }
+  var qr;
+                (function() {
+                    qr = new QRious({
+                    element: document.getElementById('qr-code'),
+                    size: 500,
+                    value: ''
+                });
+            })();
+            
+            function generateQRCode(subject) {
+                  var today = new Date();
+                  var dd = String(today.getDate()).padStart(2, '0');
+                  var mm = String(today.getMonth() + 1).padStart(2, '0');
+                  var yyyy = today.getFullYear();
+                  
+                  today = dd + '_' + mm + '_' + yyyy;
+                 var data= {"subject":subject, "date":today}
+                 const myJSON = JSON.stringify(data);
+                qr.set({
+                    foreground: 'black',
+                    size: 500,
+                    value: myJSON
+                });
+            }
+            function myFunction(chosen) {
+                  const element = document.getElementById("qr-div");
+                  element.style.display = 'flex'
+                  generateQRCode(chosen)
+                }
+            // window.onload = function exampleFunction() {
+            //       generateQRCode();
+            //   }
+           

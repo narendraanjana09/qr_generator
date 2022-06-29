@@ -4,12 +4,33 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>QR Generate</title>
+      <title>Generate QR</title>
+      <link rel = "icon" href = 
+    "https://cdn-icons-png.flaticon.com/512/3589/3589030.png" 
+            type = "image/x-icon">
+      <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"/>
       <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<div id="qrcode"></div>
-<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+      <div class="for_qr">
+      <div class="subject-select">
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange="myFunction(this.options[this.selectedIndex].text)">
+            <option selected>Please select a subject to create QR</option>
+            <option value="1">DSA</option>
+            <option value="2">Aptitude</option>
+            <option value="3">C language</option>     
+          </select>
+          <button type="button" class="btn btn-info" onclick="location.href='viewPage/attendance.html'">View Marked Attendance</button>
+      </div>
+      <div class="qr-div" id="qr-div">
+<canvas id="qr-code"></canvas>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 <script type="text/javascript" src="index.js"></script>
       
 </body>
