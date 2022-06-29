@@ -24,9 +24,13 @@
                 });
             }
             function myFunction(chosen) {
-                  const element = document.getElementById("qr-div");
+                const element = document.getElementById("qr-div");
+                if(chosen=="Please select a subject to create QR"){
+                    element.style.display = 'none'
+                }else{
                   element.style.display = 'flex'
                   generateQRCode(chosen)
+                }
                 }
             // window.onload = function exampleFunction() {
             //       generateQRCode();
